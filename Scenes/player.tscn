@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://y23f5m2byb1o" path="res://Scripts/Player_Idle.gd" id="18_igrcy"]
 [ext_resource type="Script" uid="uid://hng23wcvxkde" path="res://Scripts/Player_Run.gd" id="19_fs7ks"]
 [ext_resource type="Script" uid="uid://ck5l83gmt6x4x" path="res://Scripts/Player_Jump.gd" id="20_l6n3p"]
+[ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/Player_Crouch.gd" id="21_olqyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -1095,6 +1096,17 @@ animations = [{
 radius = 8.0
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6n3p"]
+radius = 8.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
+radius = 5.997944
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6em2"]
+radius = 9.055386
+
 [node name="Player Node" type="Node2D" unique_id=208545662]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=729720752]
@@ -1102,14 +1114,29 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Jump"
+animation = &"Slide"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
+frame_progress = 0.619191
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1980430854]
-position = Vector2(1, 10)
+[node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
+position = Vector2(1, 9)
 shape = SubResource("CapsuleShape2D_4g0pa")
+
+[node name="Crouch Collision" type="CollisionShape2D" parent="Player" unique_id=1273809985]
+position = Vector2(1, 13)
+shape = SubResource("CapsuleShape2D_l6n3p")
+disabled = true
+
+[node name="Slide Collision" type="CollisionShape2D" parent="Player" unique_id=1066094660]
+position = Vector2(6, 26)
+rotation = 1.5969763
+shape = SubResource("CapsuleShape2D_b6em2")
+disabled = true
+
+[node name="Roll Collision" type="CollisionShape2D" parent="Player" unique_id=2140496598]
+position = Vector2(0, 23)
+shape = SubResource("CircleShape2D_b6em2")
+disabled = true
 
 [node name="State Machine" type="Node2D" parent="Player" unique_id=1413068052 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("17_qqcod")
@@ -1119,8 +1146,13 @@ initial_state = NodePath("Idle")
 script = ExtResource("18_igrcy")
 
 [node name="Run" type="Node2D" parent="Player/State Machine" unique_id=438414751]
+position = Vector2(-2, 3)
 script = ExtResource("19_fs7ks")
 
 [node name="Jump" type="Node2D" parent="Player/State Machine" unique_id=1797430545]
-visible = false
+position = Vector2(-1, 16)
 script = ExtResource("20_l6n3p")
+
+[node name="Crouch" type="Node2D" parent="Player/State Machine" unique_id=1313357268]
+position = Vector2(3, 9)
+script = ExtResource("21_olqyp")

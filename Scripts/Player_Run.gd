@@ -28,3 +28,7 @@ func Physics_Update(delta: float):
 	# transitions
 	if Input.is_action_pressed("jump"):
 		Transitioned.emit(self, "jump")
+	
+	if Input.is_action_pressed("crouch"):
+		player.velocity.x = 0
+		Transitioned.emit(self, "crouch")

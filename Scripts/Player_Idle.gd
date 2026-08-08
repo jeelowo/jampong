@@ -17,3 +17,6 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_pressed("jump"):
 		Transitioned.emit(self, "jump")
+
+	if Input.is_action_pressed("crouch"):
+		Transitioned.emit(self, "crouch")
