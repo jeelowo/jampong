@@ -21,4 +21,3 @@ func Physics_Update(delta: float):
 		animation_player.play("Crouch Idle")
 	else:
 		Transitioned.emit(self, "idle")
-	

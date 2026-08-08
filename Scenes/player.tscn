@@ -1116,7 +1116,7 @@ script = ExtResource("1_fd4e3")
 sprite_frames = SubResource("SpriteFrames_b6em2")
 animation = &"Slide"
 autoplay = "Idle"
-frame_progress = 0.619191
+frame_progress = 0.7884674
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 9)

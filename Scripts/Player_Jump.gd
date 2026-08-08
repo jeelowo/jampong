@@ -1,18 +1,38 @@
 extends State
 class_name PlayerJump 
 
+@onready var standing_collision: CollisionShape2D = $"../../Standing Collision"
+@onready var crouch_collision: CollisionShape2D = $"../../Crouch Collision"
+@onready var roll_collision: CollisionShape2D = $"../../Roll Collision"
+@onready var slide_collision: CollisionShape2D = $"../../Slide Collision"
 @onready var animation_player: AnimatedSprite2D = $"../../AnimationPlayer"
 
 var player : CharacterBody2D
 var direction : float
+var can_jump = true
 
 func Enter():
+	standing_collision.disabled = false
+	crouch_collision.disabled = true
+	slide_collision.disabled = true
+	roll_collision.disabled = true
+
 	player = get_tree().get_first_node_in_group("Player")
-	player.velocity.y = player.JUMP_VELOCITY
+	can_jump = true
+	player.velocity.y = -50
 
 func Physics_Update(delta: float):
-	player.velocity += player.get_gravity() * delta
+	player.velocity += player.get_gravity() * delta * 1.3
 	
+	if Input.is_action_pressed("jump"):
+		if can_jump:
+			player.velocity.y -= 100
+		if (player.velocity.y <= player.MAX_JUMP_VELOCITY):
+			can_jump = false
+	
+	if Input.is_action_just_released("jump"):
+		can_jump = false
+		
 	animation_player.play("Jump")
 	
 	direction = Input.get_axis("move_left", "move_right")
