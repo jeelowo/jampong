@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ba7l1bhjdg2ia" path="res://Assets/Sprites/Slide.png" id="15_iruf7"]
 [ext_resource type="Script" uid="uid://lw8chvtx5wf6" path="res://Scripts/State_Machine.gd" id="17_qqcod"]
 [ext_resource type="Script" uid="uid://y23f5m2byb1o" path="res://Scripts/Player_Idle.gd" id="18_igrcy"]
+[ext_resource type="Script" uid="uid://hng23wcvxkde" path="res://Scripts/Player_Running.gd" id="19_fs7ks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -1093,24 +1094,26 @@ animations = [{
 radius = 8.0
 height = 48.0
 
-[node name="Player" type="Node2D" unique_id=208545662]
+[node name="Player Node" type="Node2D" unique_id=208545662]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=729720752]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=729720752]
 script = ExtResource("1_fd4e3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1494708865]
+[node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Jump"
+animation = &"Run"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1980430854]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 10)
 shape = SubResource("CapsuleShape2D_4g0pa")
 
-[node name="State Machine" type="Node2D" parent="CharacterBody2D" unique_id=1413068052]
+[node name="State Machine" type="Node2D" parent="Player" unique_id=1413068052 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("17_qqcod")
+initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node2D" parent="CharacterBody2D/State Machine" unique_id=369648862]
+[node name="Idle" type="Node2D" parent="Player/State Machine" unique_id=369648862]
 script = ExtResource("18_igrcy")
+
+[node name="Run" type="Node2D" parent="Player/State Machine" unique_id=438414751]
+script = ExtResource("19_fs7ks")

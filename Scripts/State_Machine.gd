@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func 	_physics_process(delta: float):
 	if current_state:
-		current_state.Physic_Update(delta)
+		current_state.Physics_Update(delta)
 
 func on_child_transition(state, new_state_name):
 	if state != current_state:
@@ -31,8 +31,8 @@ func on_child_transition(state, new_state_name):
 		return
 
 	if current_state:
-		current_state.exit()
+		current_state.Exit()
 
-	new_state.enter()
+	new_state.Enter()
 	
 	current_state = new_state
