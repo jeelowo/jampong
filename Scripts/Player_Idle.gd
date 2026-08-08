@@ -11,5 +11,9 @@ func Enter():
 func Physics_Update(delta: float):
 	animation_player.play("Idle")
 	
+	# transitions
 	if Input.get_axis("move_left","move_right") != 0:
 		Transitioned.emit(self, "run")
+
+	if Input.is_action_pressed("jump"):
+		Transitioned.emit(self, "jump")

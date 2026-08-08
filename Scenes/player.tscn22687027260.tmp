@@ -966,7 +966,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Jump",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1102,10 +1102,9 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Jump"
+animation = &"Attack From Air"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
+frame_progress = 0.7618867
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 10)
@@ -1122,5 +1121,4 @@ script = ExtResource("18_igrcy")
 script = ExtResource("19_fs7ks")
 
 [node name="Jump" type="Node2D" parent="Player/State Machine" unique_id=1797430545]
-visible = false
 script = ExtResource("20_l6n3p")

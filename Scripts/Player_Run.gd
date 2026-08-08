@@ -1,5 +1,5 @@
 extends State
-class_name PlayerRunning
+class_name PlayerRun
 
 @onready var animation_player: AnimatedSprite2D = $"../../AnimationPlayer"
 
@@ -24,3 +24,7 @@ func Physics_Update(delta: float):
 		animation_player.flip_h = false
 	elif direction == -1:
 		animation_player.flip_h = true
+	
+	# transitions
+	if Input.is_action_pressed("jump"):
+		Transitioned.emit(self, "jump")
