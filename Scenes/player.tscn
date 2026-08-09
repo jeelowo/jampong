@@ -681,13 +681,13 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tw8ou")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ygbnx")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_v2t6f")
 }, {
 "duration": 1.0,
@@ -1163,5 +1163,6 @@ script = ExtResource("21_olqyp")
 script = ExtResource("22_wpjfl")
 
 [node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
+one_shot = true
 
 [connection signal="animation_finished" from="Player/AnimationPlayer" to="Player/State Machine/Attack Standing" method="_on_animation_player_animation_finished"]
