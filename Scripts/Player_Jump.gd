@@ -23,6 +23,7 @@ func Enter():
 
 func Physics_Update(delta: float):
 	player.velocity += player.get_gravity() * delta * 1.3
+	print(player.velocity.y)
 	
 	if Input.is_action_pressed("jump"):
 		if can_jump:
@@ -41,7 +42,7 @@ func Physics_Update(delta: float):
 	if direction == 1:
 		animation_player.flip_h = false
 	elif direction == -1:
-		animation_player.flip_h = true	
+		animation_player.flip_h = true
 	
 	# Transitions
 	if player.is_on_floor() and player.velocity.x == 0:

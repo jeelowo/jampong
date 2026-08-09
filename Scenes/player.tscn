@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://hng23wcvxkde" path="res://Scripts/Player_Run.gd" id="19_fs7ks"]
 [ext_resource type="Script" uid="uid://ck5l83gmt6x4x" path="res://Scripts/Player_Jump.gd" id="20_l6n3p"]
 [ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/Player_Crouch.gd" id="21_olqyp"]
+[ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/Attack_Standing.gd" id="22_wpjfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -680,13 +681,13 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_tw8ou")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ygbnx")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_v2t6f")
 }, {
 "duration": 1.0,
@@ -740,7 +741,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ee2o4")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack Right",
 "speed": 10.0
 }, {
@@ -1114,9 +1115,10 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Slide"
+animation = &"Attack Right"
 autoplay = "Idle"
-frame_progress = 0.7884674
+frame = 19
+frame_progress = 1.0
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 9)
@@ -1156,3 +1158,10 @@ script = ExtResource("20_l6n3p")
 [node name="Crouch" type="Node2D" parent="Player/State Machine" unique_id=1313357268]
 position = Vector2(3, 9)
 script = ExtResource("21_olqyp")
+
+[node name="Attack Standing" type="Node2D" parent="Player/State Machine" unique_id=1664081734]
+script = ExtResource("22_wpjfl")
+
+[node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
+
+[connection signal="animation_finished" from="Player/AnimationPlayer" to="Player/State Machine/Attack Standing" method="_on_animation_player_animation_finished"]
