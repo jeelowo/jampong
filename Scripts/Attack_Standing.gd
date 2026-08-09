@@ -13,6 +13,8 @@ var player = CharacterBody2D
 var finished_attacking : bool
 
 func Enter():
+	print("State: " + self.name)
+	
 	standing_collision.disabled = false
 	crouch_collision.disabled = true
 	slide_collision.disabled = true
@@ -30,7 +32,11 @@ func Physics_Update(delta: float):
 	
 	if Input.is_action_just_pressed("attack") and timer.time_left <= 0.25:
 		timer.start(timer.time_left + 0.5)
-		
+	
+	# Transitions
+	if Input.is_action_pressed("jump") and timer.is_stopped():
+		Transitioned.emit(self, "Jump")
+
 	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and timer.is_stopped():
 		Transitioned.emit(self, "Run")
 

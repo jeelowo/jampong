@@ -10,6 +10,7 @@ class_name PlayerIdle
 var player : CharacterBody2D
 	
 func Enter():
+	print("State: " + self.name)
 	standing_collision.disabled = false
 	crouch_collision.disabled = true
 	slide_collision.disabled = true

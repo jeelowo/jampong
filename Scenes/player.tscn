@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://ck5l83gmt6x4x" path="res://Scripts/Player_Jump.gd" id="20_l6n3p"]
 [ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/Player_Crouch.gd" id="21_olqyp"]
 [ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/Attack_Standing.gd" id="22_wpjfl"]
+[ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/Attack_Jumping.gd" id="23_bi64h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -598,21 +599,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efrwb")
+}],
+"loop": 0,
+"name": &"Attack From Air",
+"speed": 10.0
 }, {
-"duration": 1.0,
+"frames": [{
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_hiqhm")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_tkwlq")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_hl5qd")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ek41f")
 }],
-"loop": 1,
-"name": &"Attack From Air",
+"loop": 0,
+"name": &"Attack From Air Landed",
 "speed": 10.0
 }, {
 "frames": [{
@@ -1115,9 +1121,9 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Attack Right"
+animation = &"Attack From Air Landed"
 autoplay = "Idle"
-frame = 19
+frame = 3
 frame_progress = 1.0
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
@@ -1161,6 +1167,9 @@ script = ExtResource("21_olqyp")
 
 [node name="Attack Standing" type="Node2D" parent="Player/State Machine" unique_id=1664081734]
 script = ExtResource("22_wpjfl")
+
+[node name="Attack Jumping" type="Node2D" parent="Player/State Machine" unique_id=1831534729]
+script = ExtResource("23_bi64h")
 
 [node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
 one_shot = true

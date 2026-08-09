@@ -10,6 +10,7 @@ class_name PlayerCrouch
 var player : CharacterBody2D
 
 func Enter():
+	print("State: " + self.name)
 	player = get_tree().get_first_node_in_group("Player")
 	standing_collision.disabled = true
 	crouch_collision.disabled = false

@@ -12,6 +12,7 @@ var direction : float
 var can_jump = true
 
 func Enter():
+	print("State: " + self.name)
 	standing_collision.disabled = false
 	crouch_collision.disabled = true
 	slide_collision.disabled = true
@@ -23,7 +24,6 @@ func Enter():
 
 func Physics_Update(delta: float):
 	player.velocity += player.get_gravity() * delta * 1.3
-	print(player.velocity.y)
 	
 	if Input.is_action_pressed("jump"):
 		if can_jump:
@@ -50,3 +50,6 @@ func Physics_Update(delta: float):
 	
 	if player.is_on_floor() and player.velocity.x != 0:
 		Transitioned.emit(self, "Run")
+
+	if !player.is_on_floor() and Input.is_action_just_pressed("attack"):
+		Transitioned.emit(self, "Attack Jumping")
