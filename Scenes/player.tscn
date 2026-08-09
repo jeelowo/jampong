@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/Player_Crouch.gd" id="21_olqyp"]
 [ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/Attack_Standing.gd" id="22_wpjfl"]
 [ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/Attack_Jumping.gd" id="23_bi64h"]
+[ext_resource type="Script" uid="uid://cd61m757aevdo" path="res://Scripts/Attack_Crouch.gd" id="24_2ijsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -1121,10 +1122,8 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Attack From Air Landed"
+animation = &"Crouch Attack"
 autoplay = "Idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 9)
@@ -1170,6 +1169,9 @@ script = ExtResource("22_wpjfl")
 
 [node name="Attack Jumping" type="Node2D" parent="Player/State Machine" unique_id=1831534729]
 script = ExtResource("23_bi64h")
+
+[node name="Attack Crouch" type="Node2D" parent="Player/State Machine" unique_id=1227714349]
+script = ExtResource("24_2ijsl")
 
 [node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
 one_shot = true
