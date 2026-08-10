@@ -24,14 +24,18 @@ func Enter():
 	animation_player = player.get_node("AnimationPlayer")
 	animation_player.frame_changed.connect(_on_animation_player_frame_changed)
 	
+	player.velocity.y = 0
 	finished_attacking = false
 	timer.start(0.5)
 
 func Physics_Update(delta: float):
 	# fall if on air
-	if !player.is_on_floor():
+	if !player.is_on_floor() and timer.is_stopped(): 
 		Transitioned.emit(self, "Fall")
-
+	
+	if !timer.is_stopped():
+		player.velocity.y += 0.1
+	
 	animation_player.play("Attack Right")
 	
 	if Input.is_action_just_pressed("attack") and timer.time_left <= 0.3:

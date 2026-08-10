@@ -993,7 +993,7 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Attack From Air Landed"
+animation = &"Attack Right"
 autoplay = "Idle"
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
@@ -1051,7 +1051,7 @@ script = ExtResource("25_p1odr")
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1676824320]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 script = ExtResource("26_0gysh")
 
