@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d256tahnvuthj"
-path="res://.godot/imported/attack_from_air.png-71d10e3875fbb192d8b5f13b06dd0993.ctex"
+uid="uid://twj731cgsng"
+path="res://.godot/imported/Tilesetv3.png-9165b504af832ef66b3d1eb9b40b44e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/attack_from_air.png"
-dest_files=["res://.godot/imported/attack_from_air.png-71d10e3875fbb192d8b5f13b06dd0993.ctex"]
+source_file="res://Assets/Sprites/BG/Tilesetv3.png"
+dest_files=["res://.godot/imported/Tilesetv3.png-9165b504af832ef66b3d1eb9b40b44e9.ctex"]
 
 [params]
 

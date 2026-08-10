@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0mqleqfy8olp"
-path="res://.godot/imported/Hanging.png-0ff364b7d4fff7c69faa451d76053503.ctex"
+uid="uid://b8wppln63ec2o"
+path="res://.godot/imported/spr_torch.png-2626ffc7a405ba108e407dff21f10b49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Hanging.png"
-dest_files=["res://.godot/imported/Hanging.png-0ff364b7d4fff7c69faa451d76053503.ctex"]
+source_file="res://Assets/Sprites/BG/spr_torch.png"
+dest_files=["res://.godot/imported/spr_torch.png-2626ffc7a405ba108e407dff21f10b49.ctex"]
 
 [params]
 

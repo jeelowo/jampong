@@ -31,7 +31,7 @@ func Physics_Update(delta: float):
 	animation_player.play("Attack Right")
 	
 	if Input.is_action_just_pressed("attack") and timer.time_left <= 0.3:
-		timer.start(timer.time_left + 0.5)
+		timer.start(timer.time_left + 0.4)
 	
 	# Transitions
 	if Input.is_action_pressed("jump") and timer.is_stopped():

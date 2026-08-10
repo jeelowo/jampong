@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ati3abaxqju"
-path="res://.godot/imported/crouch_idle.png-947a371b99c3703beb0795dadefeadab.ctex"
+uid="uid://cks2e2qgr25es"
+path="res://.godot/imported/Pray.png-667d126df64ae08d5cab719ccdacc6a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/crouch_idle.png"
-dest_files=["res://.godot/imported/crouch_idle.png-947a371b99c3703beb0795dadefeadab.ctex"]
+source_file="res://Assets/Sprites/Knight/Pray.png"
+dest_files=["res://.godot/imported/Pray.png-667d126df64ae08d5cab719ccdacc6a4.ctex"]
 
 [params]
 

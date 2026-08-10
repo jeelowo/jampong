@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdnggt4jgfwj2"
-path="res://.godot/imported/Attacks.png-4a2665652b0c64b0afca8998780de0e8.ctex"
+uid="uid://diqrpgjr5kcdj"
+path="res://.godot/imported/crouch_attacks.png-647da55605cb4fe6cc9de04a42a33b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Attacks.png"
-dest_files=["res://.godot/imported/Attacks.png-4a2665652b0c64b0afca8998780de0e8.ctex"]
+source_file="res://Assets/Sprites/Knight/crouch_attacks.png"
+dest_files=["res://.godot/imported/crouch_attacks.png-647da55605cb4fe6cc9de04a42a33b2f.ctex"]
 
 [params]
 

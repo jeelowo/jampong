@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://38ehibaf55lf"
-path="res://.godot/imported/Run.png-f95986076bf38ecf15e944779f71e500.ctex"
+uid="uid://dcno4qiah78pa"
+path="res://.godot/imported/Climb.png-3338ef65a2a416be2647161f7d0460e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Run.png"
-dest_files=["res://.godot/imported/Run.png-f95986076bf38ecf15e944779f71e500.ctex"]
+source_file="res://Assets/Sprites/Knight/Climb.png"
+dest_files=["res://.godot/imported/Climb.png-3338ef65a2a416be2647161f7d0460e1.ctex"]
 
 [params]
 

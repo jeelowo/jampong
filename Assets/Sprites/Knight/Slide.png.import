@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cks2e2qgr25es"
-path="res://.godot/imported/Pray.png-edf257b3c08b531c3bfa3b2b7e2fbd49.ctex"
+uid="uid://ba7l1bhjdg2ia"
+path="res://.godot/imported/Slide.png-2244ad539325a560586e77edf6311e4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Pray.png"
-dest_files=["res://.godot/imported/Pray.png-edf257b3c08b531c3bfa3b2b7e2fbd49.ctex"]
+source_file="res://Assets/Sprites/Knight/Slide.png"
+dest_files=["res://.godot/imported/Slide.png-2244ad539325a560586e77edf6311e4d.ctex"]
 
 [params]
 
