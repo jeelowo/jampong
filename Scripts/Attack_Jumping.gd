@@ -12,6 +12,7 @@ var player: CharacterBody2D
 var landed := false
 
 func Enter():
+	animation_player.animation_finished.connect(_on_landing_animation_finished)
 	print("State: " + self.name)
 
 	standing_collision.disabled = false
@@ -22,9 +23,8 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	landed = false
 
-
 func Physics_Update(delta: float):
-	player.velocity += player.get_gravity() * delta * 1.8
+	player.velocity += player.get_gravity() * delta * 10
 	player.velocity.x = 0
 
 	if not landed:
@@ -33,7 +33,9 @@ func Physics_Update(delta: float):
 	if player.is_on_floor():
 		landed = true
 		animation_player.play("Attack From Air Landed")
-		animation_player.animation_finished.connect(_on_landing_animation_finished, CONNECT_ONE_SHOT)
+
+func Exit():
+	animation_player.animation_finished.disconnect(_on_landing_animation_finished)
 
 func _on_landing_animation_finished():
 	if player.velocity.x == 0:

@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/Attack_Jumping.gd" id="23_bi64h"]
 [ext_resource type="Script" uid="uid://cd61m757aevdo" path="res://Scripts/Attack_Crouch.gd" id="24_2ijsl"]
 [ext_resource type="Script" uid="uid://dbchlqs8288i0" path="res://Scripts/Fall.gd" id="25_p1odr"]
+[ext_resource type="Script" uid="uid://bs2mwd2rtnhfi" path="res://Scenes/camera_2d.gd" id="26_0gysh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -527,9 +528,6 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_hiqhm")
-}, {
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_hiqhm")
 }, {
@@ -1051,5 +1049,10 @@ script = ExtResource("25_p1odr")
 
 [node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1676824320]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("26_0gysh")
 
 [connection signal="animation_finished" from="Player/AnimationPlayer" to="Player/State Machine/Attack Standing" method="_on_animation_player_animation_finished"]
