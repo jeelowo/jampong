@@ -21,6 +21,10 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 
 func Physics_Update(delta: float):
+	# fall if on air
+	if !player.is_on_floor():
+		Transitioned.emit(self, "Fall")
+
 	animation_player.play("Run")
 	
 	direction = Input.get_axis("move_left", "move_right")

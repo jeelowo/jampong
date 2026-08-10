@@ -31,6 +31,10 @@ func Exit():
 		animation_player.frame_changed.disconnect(_on_animation_player_frame_changed)
 
 func Physics_Update(delta: float):
+	# fall if on air
+	if !player.is_on_floor():
+		Transitioned.emit(self, "Fall")
+
 	if Input.is_action_just_pressed("attack") and timer.time_left <= 0.3:
 		timer.start(timer.time_left + 0.3)
 

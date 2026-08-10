@@ -28,6 +28,10 @@ func Enter():
 	timer.start(0.5)
 
 func Physics_Update(delta: float):
+	# fall if on air
+	if !player.is_on_floor():
+		Transitioned.emit(self, "Fall")
+
 	animation_player.play("Attack Right")
 	
 	if Input.is_action_just_pressed("attack") and timer.time_left <= 0.3:

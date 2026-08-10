@@ -21,6 +21,10 @@ func Enter():
 	player.velocity.x = 0
 
 func Physics_Update(delta: float):
+	# fall if on air
+	if not player.is_on_floor():
+		Transitioned.emit(self, "Fall")
+
 	direction = Input.get_axis("move_left", "move_right")
 	if direction == -1:
 			animation_player.flip_h = true

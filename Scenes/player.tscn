@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/Attack_Standing.gd" id="22_wpjfl"]
 [ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/Attack_Jumping.gd" id="23_bi64h"]
 [ext_resource type="Script" uid="uid://cd61m757aevdo" path="res://Scripts/Attack_Crouch.gd" id="24_2ijsl"]
+[ext_resource type="Script" uid="uid://dbchlqs8288i0" path="res://Scripts/Fall.gd" id="25_p1odr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -233,6 +234,18 @@ region = Rect2(0, 64, 128, 64)
 atlas = ExtResource("6_pbfsw")
 region = Rect2(128, 64, 128, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ot5"]
+atlas = ExtResource("11_jm5j8")
+region = Rect2(128, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pskma"]
+atlas = ExtResource("11_jm5j8")
+region = Rect2(0, 128, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sdik"]
+atlas = ExtResource("11_jm5j8")
+region = Rect2(128, 128, 128, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lx1qc"]
 atlas = ExtResource("7_5tmop")
 region = Rect2(0, 0, 128, 64)
@@ -352,18 +365,6 @@ region = Rect2(128, 0, 128, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sd4eq"]
 atlas = ExtResource("11_jm5j8")
 region = Rect2(0, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ot5"]
-atlas = ExtResource("11_jm5j8")
-region = Rect2(128, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pskma"]
-atlas = ExtResource("11_jm5j8")
-region = Rect2(0, 128, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3sdik"]
-atlas = ExtResource("11_jm5j8")
-region = Rect2(128, 128, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkvgp"]
 atlas = ExtResource("11_jm5j8")
@@ -704,6 +705,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ot5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pskma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sdik")
+}],
+"loop": 0,
+"name": &"Fall",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lx1qc")
 }, {
 "duration": 1.0,
@@ -977,8 +992,10 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Attack Right"
+animation = &"Fall"
 autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 9)
@@ -1027,6 +1044,9 @@ script = ExtResource("23_bi64h")
 
 [node name="Attack Crouch" type="Node2D" parent="Player/State Machine" unique_id=1227714349]
 script = ExtResource("24_2ijsl")
+
+[node name="Fall" type="Node2D" parent="Player/State Machine" unique_id=1456132877]
+script = ExtResource("25_p1odr")
 
 [node name="Timer" type="Timer" parent="Player/State Machine" unique_id=1585598271]
 one_shot = true
