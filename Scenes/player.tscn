@@ -530,6 +530,9 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_hiqhm")
 }, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_hiqhm")
+}, {
 "duration": 0.8,
 "texture": SubResource("AtlasTexture_tkwlq")
 }, {
@@ -972,7 +975,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4g0pa"]
 radius = 8.0
-height = 48.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6n3p"]
 radius = 8.0
@@ -992,17 +995,15 @@ script = ExtResource("1_fd4e3")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="Player" unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Fall"
+animation = &"Attack From Air Landed"
 autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="Standing Collision" type="CollisionShape2D" parent="Player" unique_id=1980430854]
 position = Vector2(1, 9)
 shape = SubResource("CapsuleShape2D_4g0pa")
 
 [node name="Crouch Collision" type="CollisionShape2D" parent="Player" unique_id=1273809985]
-position = Vector2(1, 13)
+position = Vector2(1, 12)
 shape = SubResource("CapsuleShape2D_l6n3p")
 disabled = true
 
@@ -1019,7 +1020,7 @@ disabled = true
 
 [node name="State Machine" type="Node2D" parent="Player" unique_id=1413068052 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("17_qqcod")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Fall")
 
 [node name="Idle" type="Node2D" parent="Player/State Machine" unique_id=369648862]
 script = ExtResource("18_igrcy")
