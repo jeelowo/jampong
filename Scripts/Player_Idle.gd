@@ -8,7 +8,7 @@ class_name PlayerIdle
 @onready var animation_player: AnimatedSprite2D = $"../../AnimationPlayer"
 
 var player : CharacterBody2D
-	
+
 func Enter():
 	print("State: " + self.name)
 	standing_collision.disabled = false
@@ -16,12 +16,12 @@ func Enter():
 	slide_collision.disabled = true
 	roll_collision.disabled = true
 	player = get_tree().get_first_node_in_group("Player")
-	
-func Physics_Update(delta: float):
+
+func Physics_Update(_delta: float):
 	# fall if on air
 	if !player.is_on_floor():
 		Transitioned.emit(self, "Fall")
-		
+
 	animation_player.play("Idle")
 
 	# transitions
@@ -33,6 +33,6 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_pressed("crouch"):
 		Transitioned.emit(self, "crouch")
-	
+
 	if Input.is_action_pressed("attack"):
 		Transitioned.emit(self, "Attack Standing")

@@ -17,7 +17,7 @@ func Enter():
 	crouch_collision.disabled = true
 	slide_collision.disabled = true
 	roll_collision.disabled = false
-	
+
 	player = get_tree().get_first_node_in_group("Player")
 	timer.start(1.0)
 
@@ -26,7 +26,7 @@ func Physics_Update(delta: float):
 	player.velocity.y += fall.GRAVITY * delta
 
 	animation_player.play("Roll")
-	
+
 	if Input.is_action_pressed("roll") and timer.time_left < 0.3:
 		timer.start(timer.time_left + 0.3)
 

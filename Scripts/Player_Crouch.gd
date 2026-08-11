@@ -20,7 +20,7 @@ func Enter():
 	
 	player.velocity.x = 0
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
 	# fall if on air
 	if not player.is_on_floor():
 		Transitioned.emit(self, "Fall")

@@ -7,5 +7,5 @@ const MAX_JUMP_VELOCITY = -250.0
 func _ready() -> void:
 	add_to_group("Player")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
