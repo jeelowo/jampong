@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://dbchlqs8288i0" path="res://Scripts/States/Fall.gd" id="25_p1odr"]
 [ext_resource type="Script" uid="uid://bs2mwd2rtnhfi" path="res://Scenes/camera_2d.gd" id="26_0gysh"]
 [ext_resource type="Script" uid="uid://c34swqbth1cp8" path="res://Scripts/States/Player_Roll.gd" id="26_vfarp"]
+[ext_resource type="Script" uid="uid://cmmxm8ls076h4" path="res://Scenes/audio_manager.gd" id="28_y6uwr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -998,8 +999,9 @@ script = ExtResource("26_0gysh")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Attack Right"
+animation = &"Run"
 autoplay = "Idle"
+frame_progress = 0.17155485
 
 [node name="Standing Collision" type="CollisionShape2D" parent="." unique_id=1980430854]
 position = Vector2(1, 9)
@@ -1028,9 +1030,10 @@ initial_state = NodePath("Fall")
 [node name="Idle" type="Node2D" parent="State Machine" unique_id=369648862]
 script = ExtResource("18_igrcy")
 
-[node name="Run" type="Node2D" parent="State Machine" unique_id=438414751]
+[node name="Run" type="Node2D" parent="State Machine" unique_id=438414751 node_paths=PackedStringArray("footsteps_manager")]
 position = Vector2(-2, 3)
 script = ExtResource("19_fs7ks")
+footsteps_manager = NodePath("../../Footsteps Manager")
 
 [node name="Jump" type="Node2D" parent="State Machine" unique_id=1797430545]
 position = Vector2(-1, 16)
@@ -1059,6 +1062,14 @@ one_shot = true
 script = ExtResource("26_vfarp")
 
 [node name="Components" type="Node2D" parent="." unique_id=1749888423]
+
+[node name="Footsteps Manager" type="Node2D" parent="." unique_id=618961640]
+script = ExtResource("28_y6uwr")
+
+[node name="Footsteps Player" type="AudioStreamPlayer2D" parent="Footsteps Manager" unique_id=1301588210]
+volume_db = 10.706
+pitch_scale = 1.6
+panning_strength = 2.7
 
 [node name="Ground RayCast" type="RayCast2D" parent="." unique_id=383113498]
 target_position = Vector2(0, 35)

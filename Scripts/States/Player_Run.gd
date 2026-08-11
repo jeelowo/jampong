@@ -1,6 +1,7 @@
 extends State
 class_name PlayerRun
 
+@export var footsteps_manager: Node2D
 @onready var standing_collision: CollisionShape2D = $"../../Standing Collision"
 @onready var crouch_collision: CollisionShape2D = $"../../Crouch Collision"
 @onready var roll_collision: CollisionShape2D = $"../../Roll Collision"
@@ -19,6 +20,8 @@ func Enter():
 	slide_collision.disabled = true
 	roll_collision.disabled = true
 	player = get_tree().get_first_node_in_group("Player")
+
+	animation_player.frame_changed.connect(_on_animation_player_frame_changed)
 
 func Physics_Update(_delta: float):
 	# fall if on air
@@ -50,3 +53,11 @@ func Physics_Update(_delta: float):
 
 	if Input.is_action_just_pressed("roll") and !player.is_on_wall():
 		Transitioned.emit(self, "Roll")
+
+func Exit():
+	animation_player.frame_changed.disconnect(_on_animation_player_frame_changed)
+
+func _on_animation_player_frame_changed() -> void:
+	if animation_player.frame in [0,4]:
+		footsteps_manager.play_footstep()
+		print("footstep")
