@@ -43,9 +43,10 @@ func Physics_Update(delta: float):
 		Transitioned.emit(self, "jump")
 	
 	if Input.is_action_pressed("crouch"):
-		player.velocity.x = 0
 		Transitioned.emit(self, "crouch")
 	
 	if Input.is_action_pressed("attack"):
-		player.velocity.x = 0
 		Transitioned.emit(self, "Attack Standing")
+
+	if Input.is_action_just_pressed("roll") and !player.is_on_wall():
+		Transitioned.emit(self, "Roll")

@@ -23,3 +23,9 @@ jobs:
 
       - name: Check Godot project
         run: godot --headless --editor --quit
+
+      - name: Install GDScript Toolkit
+        run: pip install "gdtoolkit==4.*"
+
+      - name: Lint GDScript
+        run: gdlint .

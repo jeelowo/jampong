@@ -24,7 +24,7 @@ func Enter():
 	animation_player = player.get_node("AnimationPlayer")
 	animation_player.frame_changed.connect(_on_animation_player_frame_changed)
 	
-	player.velocity.y = 0
+	player.velocity = Vector2(0, 0)
 	finished_attacking = false
 	timer.start(0.5)
 
