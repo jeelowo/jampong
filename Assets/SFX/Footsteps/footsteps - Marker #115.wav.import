@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i4hcp4ji6vua"
+path="res://.godot/imported/footsteps - Marker #115.wav-90d8920312014f8dafa228be552e8785.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Footsteps/footsteps - Marker #115.wav"
+dest_files=["res://.godot/imported/footsteps - Marker #115.wav-90d8920312014f8dafa228be552e8785.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

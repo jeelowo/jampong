@@ -16,17 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://bo52jwf717ffl" path="res://Assets/Sprites/Knight/Roll.png" id="13_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://38ehibaf55lf" path="res://Assets/Sprites/Knight/Run.png" id="14_2wuci"]
 [ext_resource type="Texture2D" uid="uid://ba7l1bhjdg2ia" path="res://Assets/Sprites/Knight/Slide.png" id="15_iruf7"]
-[ext_resource type="Script" uid="uid://lw8chvtx5wf6" path="res://Scripts/State_Machine.gd" id="17_qqcod"]
-[ext_resource type="Script" uid="uid://y23f5m2byb1o" path="res://Scripts/Player_Idle.gd" id="18_igrcy"]
-[ext_resource type="Script" uid="uid://hng23wcvxkde" path="res://Scripts/Player_Run.gd" id="19_fs7ks"]
-[ext_resource type="Script" uid="uid://ck5l83gmt6x4x" path="res://Scripts/Player_Jump.gd" id="20_l6n3p"]
-[ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/Player_Crouch.gd" id="21_olqyp"]
-[ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/Attack_Standing.gd" id="22_wpjfl"]
-[ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/Attack_Jumping.gd" id="23_bi64h"]
-[ext_resource type="Script" uid="uid://cd61m757aevdo" path="res://Scripts/Attack_Crouch.gd" id="24_2ijsl"]
-[ext_resource type="Script" uid="uid://dbchlqs8288i0" path="res://Scripts/Fall.gd" id="25_p1odr"]
+[ext_resource type="Script" uid="uid://lw8chvtx5wf6" path="res://Scripts/States/State_Machine.gd" id="17_qqcod"]
+[ext_resource type="Script" uid="uid://y23f5m2byb1o" path="res://Scripts/States/Player_Idle.gd" id="18_igrcy"]
+[ext_resource type="Script" uid="uid://hng23wcvxkde" path="res://Scripts/States/Player_Run.gd" id="19_fs7ks"]
+[ext_resource type="Script" uid="uid://ck5l83gmt6x4x" path="res://Scripts/States/Player_Jump.gd" id="20_l6n3p"]
+[ext_resource type="Script" uid="uid://ccddy4hb1kbje" path="res://Scripts/States/Player_Crouch.gd" id="21_olqyp"]
+[ext_resource type="Script" uid="uid://g2b78f081d1n" path="res://Scripts/States/Attack_Standing.gd" id="22_wpjfl"]
+[ext_resource type="Script" uid="uid://bx8vdhgonibf8" path="res://Scripts/States/Attack_Jumping.gd" id="23_bi64h"]
+[ext_resource type="Script" uid="uid://cd61m757aevdo" path="res://Scripts/States/Attack_Crouch.gd" id="24_2ijsl"]
+[ext_resource type="Script" uid="uid://dbchlqs8288i0" path="res://Scripts/States/Fall.gd" id="25_p1odr"]
 [ext_resource type="Script" uid="uid://bs2mwd2rtnhfi" path="res://Scenes/camera_2d.gd" id="26_0gysh"]
-[ext_resource type="Script" uid="uid://c34swqbth1cp8" path="res://Scripts/Player_Roll.gd" id="26_vfarp"]
+[ext_resource type="Script" uid="uid://c34swqbth1cp8" path="res://Scripts/States/Player_Roll.gd" id="26_vfarp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_606se")
@@ -990,6 +990,12 @@ radius = 9.055386
 [node name="Player" type="CharacterBody2D" unique_id=729720752]
 script = ExtResource("1_fd4e3")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1676824320]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+script = ExtResource("26_0gysh")
+
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=1494708865]
 sprite_frames = SubResource("SpriteFrames_b6em2")
 animation = &"Attack Right"
@@ -1052,10 +1058,9 @@ one_shot = true
 [node name="Roll" type="Node2D" parent="State Machine" unique_id=6396970]
 script = ExtResource("26_vfarp")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1676824320]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-script = ExtResource("26_0gysh")
+[node name="Components" type="Node2D" parent="." unique_id=1749888423]
+
+[node name="Ground RayCast" type="RayCast2D" parent="." unique_id=383113498]
+target_position = Vector2(0, 35)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="State Machine/Attack Standing" method="_on_animation_player_animation_finished"]

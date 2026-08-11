@@ -25,7 +25,7 @@ func Enter():
 
 	player.velocity = Vector2(0, 0)
 	finished_attacking = false
-	timer.start(0.5)
+	timer.start(0.4)
 
 func Physics_Update(_delta: float):
 	# fall if on air
@@ -41,7 +41,7 @@ func Physics_Update(_delta: float):
 		timer.start(timer.time_left + 0.4)
 
 	# Transitions
-	if Input.is_action_pressed("jump") and timer.is_stopped():
+	if Input.is_action_pressed("jump") and player.is_on_floor():
 		Transitioned.emit(self, "Jump")
 
 	if (Input.is_action_pressed("move_left")
@@ -49,8 +49,7 @@ func Physics_Update(_delta: float):
 	) and timer.is_stopped():
 		Transitioned.emit(self, "Run")
 
-	if finished_attacking:
-		print("finished")
+	if finished_attacking and timer.is_stopped():
 		finished_attacking = false
 		Transitioned.emit(self, "Idle")
 
@@ -72,7 +71,10 @@ func _on_animation_player_frame_changed() -> void:
 			animation_player.flip_h = false
 
 	if animation_player.frame in [3, 7, 11, 16]:
-		player.velocity.x = 70 * direction
+		if animation_player.frame != 11:
+			player.velocity.x = 70 * direction
+		else:
+			player.velocity.x = 400 * direction
 
 	if animation_player.frame in [4, 8, 12, 17]:
 		player.velocity.x = 0

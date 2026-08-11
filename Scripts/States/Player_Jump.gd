@@ -51,8 +51,8 @@ func Physics_Update(delta: float):
 	if player.is_on_floor() and player.velocity.x != 0:
 		Transitioned.emit(self, "Run")
 
-	if (!player.is_on_floor() 
-	and Input.is_action_pressed("move_down") 
+	if (!player.is_on_floor()
+	and Input.is_action_pressed("move_down")
 	and Input.is_action_just_pressed("attack")):
 		Transitioned.emit(self, "Attack Jumping")
 

@@ -1,3 +1,4 @@
 disable:
   - function-name
   - class-definitions-order
+  - signal-name

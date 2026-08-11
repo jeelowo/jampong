@@ -26,25 +26,25 @@ func Physics_Update(_delta: float):
 		Transitioned.emit(self, "Fall")
 
 	animation_player.play("Run")
-	
+
 	direction = Input.get_axis("move_left", "move_right")
-	
+
 	player.velocity.x = player.SPEED * direction
-	
+
 	if direction == 0.0:
 		Transitioned.emit(self, "Idle")
 	elif direction == 1:
 		animation_player.flip_h = false
 	elif direction == -1:
 		animation_player.flip_h = true
-	
+
 	# transitions
 	if Input.is_action_pressed("jump"):
 		Transitioned.emit(self, "jump")
-	
+
 	if Input.is_action_pressed("crouch"):
 		Transitioned.emit(self, "crouch")
-	
+
 	if Input.is_action_pressed("attack"):
 		Transitioned.emit(self, "Attack Standing")
 
