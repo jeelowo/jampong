@@ -44,7 +44,9 @@ func Physics_Update(_delta: float):
 	if Input.is_action_pressed("jump") and timer.is_stopped():
 		Transitioned.emit(self, "Jump")
 
-	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and timer.is_stopped():
+	if (Input.is_action_pressed("move_left")
+		or Input.is_action_pressed("move_right")
+	) and timer.is_stopped():
 		Transitioned.emit(self, "Run")
 
 	if finished_attacking:

@@ -17,7 +17,7 @@ func Enter():
 	crouch_collision.disabled = false
 	slide_collision.disabled = true
 	roll_collision.disabled = true
-	
+
 	player.velocity.x = 0
 
 func Physics_Update(_delta: float):

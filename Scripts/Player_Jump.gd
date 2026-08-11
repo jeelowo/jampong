@@ -1,5 +1,5 @@
 extends State
-class_name PlayerJump 
+class_name PlayerJump
 
 @onready var standing_collision: CollisionShape2D = $"../../Standing Collision"
 @onready var crouch_collision: CollisionShape2D = $"../../Crouch Collision"
@@ -35,10 +35,10 @@ func Physics_Update(delta: float):
 		can_jump = false
 
 	animation_player.play("Jump")
-	
+
 	direction = Input.get_axis("move_left", "move_right")
 	player.velocity.x = player.SPEED * 1.05 * direction
-	
+
 	if direction == 1:
 		animation_player.flip_h = false
 	elif direction == -1:
@@ -51,7 +51,9 @@ func Physics_Update(delta: float):
 	if player.is_on_floor() and player.velocity.x != 0:
 		Transitioned.emit(self, "Run")
 
-	if !player.is_on_floor() and Input.is_action_pressed("move_down") and Input.is_action_just_pressed("attack") :
+	if (!player.is_on_floor() 
+	and Input.is_action_pressed("move_down") 
+	and Input.is_action_just_pressed("attack")):
 		Transitioned.emit(self, "Attack Jumping")
 
 	if !player.is_on_floor() and Input.is_action_just_pressed("attack") :
